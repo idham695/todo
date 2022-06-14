@@ -1,0 +1,15 @@
+<%-contentFor('body')%>
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-xl-12 col-md-6 col-xs-4 mt-2 mb-2 border rounded-3 p-5 mt-4">
+                <form action="/home/<%=data.id%>/update" method="post">
+                    <div class="form-group py-3">
+                        <label>Nama Kegiatan</label>
+                        <input type="text" class="form-control" name="judul" value="<%=data.title%>"
+                            placeholder="<%=data.title%>" />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>

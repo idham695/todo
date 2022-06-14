@@ -1,0 +1,43 @@
+<%-contentFor('body')%>
+    <div class="container d-flex h-100" style="min-height: 88vh;">
+        <div class="justify-content-center align-self-center w-75 p-5 mx-auto rounded-3">
+            <h2>Todo-Lists</h2>
+            <p>Belajar Membuat todo lists</p>
+            <form action="/home/create" method="post">
+                <div class="mb-3">
+                    <label for="judul" class="form-label">Judul</label>
+                    <input type="text" name="judul" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label for="tanggal" class="form-label">tanggal</label><br />
+                    <input type="datetime-local" name="tanggal" class="form-control" />
+                </div>
+                <button type="submit" class="btn btn-primary">Buat todo</button>
+            </form>
+            <div class="row mb-4">
+                <% for(let i of data) {%>
+                    <div class="col-xl-12 col-md-6 col-xs-4 mt-2 mb-2">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= i.title %>
+                                </h5>
+                                <h6 class="card-title">
+                                    <%= i.isDone===true ? 'Sudah selesai' : 'Belum Selesai' %>
+                                </h6>
+                                <p class="card-text">
+                                    <%= i.createdAt %>
+                                </p>
+                                <a href="/home/<%=i.id%>/edit" class="card-link">Edit</a>
+                                <form action="/home/<%= i.id%>/delete" class="w-25" method="post">
+                                    <button class="btn btn-link text-decoration-none text-dark">
+                                        Hapus
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                <%}%>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,29 @@
+<%- contentFor('body')%>
+<div class="container d-flex h-100" style="min-height: 88vh;">
+    <div class="row justify-content-center align-self-center w-75 p-5 mx-auto bg-secondary rounded-3">
+        <% if (locals.messages.error) { %>
+            <h5 class="text-danger text-center">
+                <%= locals.messages.error %>
+            </h5>
+        <% } %>
+        <h2 class="text-light text-center">Laman pendaftaran</h2>
+        <form method="POST" action="/auth/signup">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label text-light">Username</label>
+                <input type="text" class="form-control" name="uname" />
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label text-light">Alamat Email</label>
+                <input type="email" name="email" class="form-control" />
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label text-light">Password</label>
+                <input type="password" class="form-control" name="password" />
+            </div>
+            <button type="submit" class="btn btn-primary">Daftar</button>
+            <h5 class="text-light mt-2">
+                Sudah punya akun? <a href="/auth/signin">Masuk</a> disini!
+            </h5>
+        </form>
+    </div>
+</div>
